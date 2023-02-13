@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api/axiosConfig';
+import {useState, useEffect} from 'react';
 
 function App() {
+
+  //returning a destructured array from the useState hook
+  const [items, setItems] = useState();
+
+  const getItems = async () => {
+
+    try {
+      const response = await api.get("/api/v1/items");
+
+      console.log(response.data);
+  
+      setItems(response.data);
+
+    } catch(e){
+      console.log(e);
+    }
+  }
+
+  //using useEffect to load getItems so that this component loads first when app is loaded
+  useEffect(() => {
+    getItems();
+  },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
