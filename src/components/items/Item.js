@@ -5,6 +5,7 @@ import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 
 const Item = ({items}) => {
+
   return (
     <div className='item-carousel-container'>
       <Carousel>
