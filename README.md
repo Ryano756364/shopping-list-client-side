@@ -12,9 +12,9 @@
 
 ` React routers `
 
-` `
+` Updating state with api array data `
 
-` `
+` Then using this data passing down through props `
 
 ` `
 
