@@ -4,6 +4,9 @@ import './Item.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
 import searchImages from '../../api/unsplashApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import {Link, useNavigate} from "react-router-dom";
 
 const Item = ({items}) => {
   /* let imageUrl = "";
@@ -29,6 +32,16 @@ const Item = ({items}) => {
                         </div>
                         <div className='item-name'>
                           <h3>{item.name}</h3>
+                        </div>
+                        <div className='item-buttons-container'>
+                          <Link to={`/Video/${item.videoLink.substring(item.videoLink.length - 11)}`}>
+                            <div className='play-button-icon-container'>
+                              <FontAwesomeIcon 
+                                className='play-button-icon'
+                                icon = {faCirclePlay}>
+                              </FontAwesomeIcon>
+                            </div>
+                          </Link>
                         </div>
                      </div>
                   </div>

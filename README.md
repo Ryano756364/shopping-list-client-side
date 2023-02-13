@@ -16,7 +16,7 @@
 
 ` Then using this data passing down through props `
 
-` `
+` React Video Player `
 
 ` `
 
