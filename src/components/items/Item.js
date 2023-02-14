@@ -7,6 +7,7 @@ import searchImages from '../../api/unsplashApi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 const Item = ({items}) => {
   /* let imageUrl = "";
@@ -15,6 +16,12 @@ const Item = ({items}) => {
     let result = await searchImages(item.name);
     item.picture = (result.urls.regular);
   }; */
+
+  /* const navigate = useNavigate();
+
+  function reviews(sku){
+    navigate(`/Reviews/${sku}`);
+  } */
 
   return (
     <div className='item-carousel-container'>
@@ -43,6 +50,13 @@ const Item = ({items}) => {
                             </div>
                           </Link>
                         </div>
+
+                        {/* <div className='item-review-button-container'>
+                          <Button variant='info' onClick={() => reviews(item.sku)}>
+                            Reviews
+                          </Button>
+                        </div> */}
+
                      </div>
                   </div>
                 </div>
