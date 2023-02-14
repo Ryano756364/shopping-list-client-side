@@ -12,8 +12,8 @@ function App() {
 
   //returning a destructured array from the useState hook
   const [items, setItems] = useState([]);
-  /* const [item, setItem] = useState();
-  const [reviews, setReviews] = useState([]); */
+  const [item, setItem] = useState();
+  const [reviews, setReviews] = useState([]);
 
   const getItems = async () => {
 
@@ -27,7 +27,7 @@ function App() {
   }
 
   //method that uses axios to get data pertaining to a single item
-  /* const getItemData = async (sku) => {
+  const getItemData = async (sku) => {
     try {
       const response = await api.get(`/api/v1/items/${sku}`);
       
@@ -35,11 +35,11 @@ function App() {
 
       setItem(singleItem);
 
-      setReviews(singleItem.reviews);
+      setReviews(singleItem.reviewIds); //bug fixed!!!!!!
     } catch (e){
       console.log(e);
     }
-  } */
+  }
 
   //using useEffect to load getItems so that this component loads first when app is loaded
   useEffect(() => {
@@ -53,11 +53,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home items={items} />} ></Route>
           <Route path="/Video/:ytRecipeId" element={<RecipeVideo />}></Route>
-          {/* <Route path="/Reviews/:sku" element={<Reviews 
+          <Route path="/Reviews/:sku" element={<Reviews 
             getItemData={getItemData} 
             reviews={reviews} 
             setReviews={setReviews} 
-            item={item}/>}></Route> */}
+            item={item}/>}></Route>
         </Route>
       </Routes>
     </div>

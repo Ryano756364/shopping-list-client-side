@@ -17,11 +17,11 @@ const Item = ({items}) => {
     item.picture = (result.urls.regular);
   }; */
 
-  /* const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function reviews(sku){
     navigate(`/Reviews/${sku}`);
-  } */
+  } 
 
   return (
     <div className='item-carousel-container'>
@@ -51,11 +51,11 @@ const Item = ({items}) => {
                           </Link>
                         </div>
 
-                        {/* <div className='item-review-button-container'>
+                        <div className='item-review-button-container'>
                           <Button variant='info' onClick={() => reviews(item.sku)}>
                             Reviews
                           </Button>
-                        </div> */}
+                        </div>
 
                      </div>
                   </div>

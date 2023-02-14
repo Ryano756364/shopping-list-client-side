@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import api from '../../api/mainConfig';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
-import ReaviewForm from "../reviewForm/reaviewForm";
+import ReviewForm from "../reviewForm/reviewForm";
 
 
-const reviews = ({getItemData,item,reviews,setReviews}) => {
+const reviews = ({getItemData,reviews,setReviews,item}) => {
 
   const revText = useRef();
   let params = useParams();
@@ -24,7 +24,7 @@ const reviews = ({getItemData,item,reviews,setReviews}) => {
     try{
       const response = await api.post("/api/v1/reviews",{reviewBody:rev.value,sku:sku});
 
-      const updatedReviews = [...reviews,{body:rev.value}];  //instead of pulling original data again, we just update the state to include the new review
+      const updatedReviews = [...reviews, {body:rev.value}];  //instead of pulling original data again, we just update the state to include the new review
 
       rev.value = "";  //clears text area once user has submitted a reivew
 
@@ -52,10 +52,11 @@ const reviews = ({getItemData,item,reviews,setReviews}) => {
               <>
                 <Row>
                     <Col>
-                      <ReaviewForm 
+                      <ReviewForm 
                         handleSubmit={addReview} 
                         revText={revText} 
-                        labelText= "Write a review of the recipe!"></ReaviewForm>
+                        labelText= "Write a review of the recipe!">
+                      </ReviewForm>
                     </Col>
                 </Row>
 
